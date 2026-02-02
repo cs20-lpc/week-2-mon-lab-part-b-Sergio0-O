@@ -7,11 +7,10 @@
 void getInput(Student[], const int);
 int modify(int);
 void display(const Student[], const int);
-
 /*******************************************************************************
  * Description:
  * Starting point of the program. Creates an array of `Student` objects.
- * 
+ *
  * Input:
  * N/A
  *
@@ -44,7 +43,7 @@ int main() {
  * Description:
  * Uses a `for` loop to prompt the user for the name/age of each student. Store
  * the information in the appropriate object.
- * 
+ *
  * Input:
  * objArray - an array of `Student` objects
  * SIZE     - a constant integer that represents the size of the array
@@ -83,7 +82,7 @@ void getInput(Student objArray[], const int SIZE) {
  * should have their age bumped up to 18. Students older than 50 should have
  * their age bumped down to 50. Students that do not meet the criteria do not
  * have their age modified.
- * 
+ *
  * Input:
  * i - the actual age of the student
  *
@@ -110,7 +109,7 @@ int modify(int i) {
  * Description:
  * Uses a `while` loop to display the information about the students stored in
  * the object array.
- * 
+ *
  * Input:
  * objArray - an array of `Student` objects
  * SIZE     - a constant integer that represents the size of the array
@@ -134,3 +133,32 @@ void display(const Student objArray[], const int SIZE) {
         i++;
     }
 }
+
+Student::Student() {
+    name = new string("");
+    age  = new int(0);
+    cout << "Student object created!" << endl;
+}
+
+Student::~Student() {
+    delete name;
+    delete age;
+    cout << "Student object destroyed!" << endl;
+}
+
+void Student::setName(string s) {
+    *name = s;
+}
+
+void Student::setAge(int i) {
+    *age = i;
+}
+
+string Student::getName() const {
+    return *name;
+}
+
+int Student::getAge() const {
+    return *age;
+}
+
